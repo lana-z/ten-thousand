@@ -5,11 +5,12 @@
 ### Author: Lana Z
 
 ### Project Links
-- [Ten Thousand](https://github.com/lana-z/)
+- [Ten Thousand](https://github.com/lana-z/ten-thousand)
 
 ### Resources
+- Starter code, tests [Class-06](https://github.com/codefellows/seattle-code-python-401d24/tree/main/class-06/demo/parametrized-tests)
 - ChatGPT
-- 
+- Wikipedia [Dice 10000](https://en.wikipedia.org/wiki/Dice_10000)
 
 ## Setup
 
@@ -22,11 +23,10 @@ Learn more about the prompts I created in [prompt.md](prompt.md)
 
 ### Tests
 
-- install and run `pytest` for tests found in test_game_logic.py
-<!-- 
-- Any tests of note? 
--->
+- install and run `pytest` for tests found in test_game_logic.py 
+
 
 ### Log
 
-- Sun: reviewed project requirements, set up files
+- Sun: reviewed project requirements, set up files, initial prompts and code
+
