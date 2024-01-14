@@ -28,5 +28,5 @@ Learn more about the prompts I created in [prompt.md](prompt.md)
 
 ### Log
 
-- Sun: reviewed project requirements, set up files, initial prompts and code
+- Sun: reviewed project requirements, set up files, initial prompts and code, tests passing
 
