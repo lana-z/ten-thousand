@@ -30,4 +30,4 @@ Learn more about the prompts I created in [prompt.md](prompt.md)
 
 - Sun: reviewed project requirements, set up files, initial prompts and code, tests passing
 - Tues: added new testing files JB added to repo - 24 failing and 38 passing 
-- Wed: solved for passing new calculation tests, except for 3 pairs.
+- Wed: solved for passing new calculation tests except for 3 pairs, collaborated with Kaitlyn to plan for lab 07 and pass 3 pairs test.

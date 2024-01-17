@@ -12,10 +12,16 @@ class GameLogic:
         score = 0
 
         # Check for straight, three pairs, and full house first since they are exclusive
+
+        #Scoring a straight
         if set(dice_roll) == {1, 2, 3, 4, 5, 6}:
             return 1500
+        
+        #Scoring three pairs
         if len(counts) == 3 and all(count == 2 for count in counts.values()):
-            return 1000
+            return 1500
+        
+        #Scoring a full house
         if len(counts) == 2 and (3 in counts.values() and 2 in counts.values()):
             return 1500
 
