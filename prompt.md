@@ -1,4 +1,6 @@
+# Documentation of AI Use for Lab 06 per Lab Instructions
 
+## Prompts 
 ME:
 Title this chat Farkle
 
@@ -141,3 +143,6 @@ dice_roll = (1, 2, 3, 4, 5, 6)
 score = GameLogic.calculate_score(dice_roll)
 score
 ```
+
+## Replaced test files with lab's updated test files test_calculate_score.py and test_roll_dice.py
+
