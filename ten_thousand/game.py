@@ -16,7 +16,7 @@ def play():
         #while not user_quit
         #while user_quit == False  do same thing but the second two include a Flag for end of game and prevent infinite loop
         #all three of the above are the same the second two include a Flag, a way to let the user quit and stop the loop
-        while user_quit == False:
+        while not user_quit:
             print(f"Starting round {round_number}")
         
             print("Rolling 6 dice...🎲")
@@ -27,12 +27,12 @@ def play():
                 keep_dice = input("Enter dice to keep, or (q)uit:\n> ")
 
                 if keep_dice.lower() == 'q':
-                    print(f"Thanks for playing. You earned {score} points")
+                    user_quit = True
                     break
                 
                 else:
-                #convert keep_dice to a tuple of integers
-                    keep_dice = tuple(map(int, keep_dice.split()))
+                    #convert each character in keep_dice to an integer
+                    keep_dice = tuple(map(int, keep_dice))
                     unbanked_score = GameLogic.calculate_score(keep_dice)
                     dice_remaining = 6 - len(keep_dice)
 
@@ -48,17 +48,19 @@ def play():
                         break
 
                     elif next_roll.lower() == 'q':
-                        print(f"Thanks for playing. You earned {score} points")
                         user_quit = True
+                        print(f"Thanks for playing. You earned {score} points")                        
                         break
 
                     else:
                         print("Invalid input. Please enter 'r', 'b', or 'q'.")
             
-            if user_quit == True:
+            if user_quit:
                 break
 
             round_number += 1
+
+        print(f"Thanks for playing. You earned {score} points")
 
 
     elif play_game.lower() == 'n':
