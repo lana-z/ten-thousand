@@ -24,12 +24,3 @@ def play():
 
 if __name__ == "__main__":
     play()
-
-def one_and_done():
-    print("Rolling 6 dice...")
-    dice_roll = GameLogic.roll_dice(6)
-    print("***", " ".join(map(str, dice_roll)), "***")
-    print("Enter dice to keep, or (q)uit:")
-
-    if choice.lower() == 'q':
-        print("Thanks for playing. You earned 0 points")
