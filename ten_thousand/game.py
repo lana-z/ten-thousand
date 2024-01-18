@@ -23,33 +23,37 @@ def play():
             dice_roll = GameLogic.roll_dice(6)
             print("***", " ".join(map(str, dice_roll)), "***")
         
-            keep_dice = input("Enter dice to keep, or (q)uit:\n> ")
+            while True:
+                keep_dice = input("Enter dice to keep, or (q)uit:\n> ")
 
-            if keep_dice.lower() == 'q':
-                print(f"Thanks for playing. You earned {score} points")
-                break
-            
-            else:
-            #convert keep_dice to a tuple of integers
-                keep_dice = tuple(map(int, keep_dice.split()))
-                unbanked_score = GameLogic.calculate_score(keep_dice)
-                dice_remaining = 6 - len(keep_dice)
-
-                next_roll = input(f"You have {unbanked_score} unbanked points and {dice_remaining} dice remaining\n(r)oll again, (b)ank points or (q)uit\n> ")
-                
-                if next_roll.lower() == 'b':
-                    score += unbanked_score
-                    print(f"You banked {unbanked_score} points in round {round_number}")
-                    print(f"Total score is {score}")
-                    round_number += 1
-
-                elif next_roll.lower() == 'q':
+                if keep_dice.lower() == 'q':
                     print(f"Thanks for playing. You earned {score} points")
-                    user_quit = True
                     break
-
+                
                 else:
-                    print("Invalid input. Please enter 'r', 'b', or 'q'.")
+                #convert keep_dice to a tuple of integers
+                    keep_dice = tuple(map(int, keep_dice.split()))
+                    unbanked_score = GameLogic.calculate_score(keep_dice)
+                    dice_remaining = 6 - len(keep_dice)
+
+                    next_roll = input(f"You have {unbanked_score} unbanked points and {dice_remaining} dice remaining\n(r)oll again, (b)ank points or (q)uit\n> ")
+                    
+                    if next_roll.lower() == 'b':
+                        score += unbanked_score
+                        print(f"You banked {unbanked_score} points in round {round_number}")
+                        print(f"Total score is {score}")
+                        break
+
+                    elif next_roll.lower() == 'r':
+                        break
+
+                    elif next_roll.lower() == 'q':
+                        print(f"Thanks for playing. You earned {score} points")
+                        user_quit = True
+                        break
+
+                    else:
+                        print("Invalid input. Please enter 'r', 'b', or 'q'.")
             
             if user_quit == True:
                 break
