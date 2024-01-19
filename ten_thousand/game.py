@@ -1,6 +1,9 @@
 from ten_thousand.game_logic import GameLogic 
 
-def play():
+def play(roller=None):
+    if roller is None:
+            roller = GameLogic.roll_dice
+
     print("Welcome to Ten Thousand")
     #print or input prints
     play_game = input("(y)es to play or (n)o to decline\n> ")
@@ -19,9 +22,9 @@ def play():
         while not user_quit:
             print(f"Starting round {round_number}")
         
-            print("Rolling 6 dice...🎲")
-            dice_roll = GameLogic.roll_dice(6)
-            print("***", " ".join(map(str, dice_roll)), "***")
+            print("Rolling 6 dice...")
+            dice_roll = roller(6)
+            print("*** " + ''.join(str(die) + ' ' for die in dice_roll).strip() + " ***")
         
             while True:
                 keep_dice = input("Enter dice to keep, or (q)uit:\n> ")
@@ -36,12 +39,12 @@ def play():
                     unbanked_score = GameLogic.calculate_score(keep_dice)
                     dice_remaining = 6 - len(keep_dice)
 
-                    next_roll = input(f"You have {unbanked_score} unbanked points and {dice_remaining} dice remaining\n(r)oll again, (b)ank points or (q)uit\n> ")
+                    next_roll = input(f"You have {unbanked_score} unbanked points and {dice_remaining} dice remaining\n(r)oll again, (b)ank your points or (q)uit:\n> ")
                     
                     if next_roll.lower() == 'b':
                         score += unbanked_score
                         print(f"You banked {unbanked_score} points in round {round_number}")
-                        print(f"Total score is {score}")
+                        print(f"Total score is {score} points")
                         break
 
                     elif next_roll.lower() == 'r':
