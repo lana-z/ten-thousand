@@ -34,4 +34,6 @@ Learn more about the initial prompts I created in [prompt.md](prompt.md)
 - Tues: added new testing files JB added to repo - 24 failing and 38 passing 
 - Wed: solved for passing new calculation tests, except for 3 pairs, replaced correct score for 3 pairs to pass all Version_1 tests, collaborated with Kaitlyn to plan for lab 07, wrote game logic code based on simulations provided in Version_2 test folder. 
     - made it to bank_one_roll_then_quit sim, running correctly
-    
+- Thurs: 
+    - roller branch: added roller for testing, and made adjustments to pass all v.2 tests
+    - continue-rolling branch: broke everything. Will deal with it tomorrow. 
