@@ -36,5 +36,7 @@ Learn more about the initial prompts I created in [prompt.md](prompt.md)
 - Thurs: 
     - roller branch: added roller for testing, and made adjustments to pass all v.2 tests
     - continue-rolling branch: broke everything. Will deal with it tomorrow. 
-- Fri: 
+- Fri/Sun: 
     - went back to roller branch merge, didn't merge continue-rolling branch, and started fresh with hot-dice branch
+    - 4 failing, 76 passing tests and several game functionality issues
+    - commented out code for features that are causing other tests to fail
