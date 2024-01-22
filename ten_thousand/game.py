@@ -25,7 +25,23 @@ def play(roller=None):
             print("Rolling 6 dice...")
             dice_roll = roller(6)
             print("*** " + ''.join(str(die) + ' ' for die in dice_roll).strip() + " ***")
-        
+
+            scoring = GameLogic.get_scorers(dice_roll)
+            if not scoring:
+                print("""
+                ****************************************
+                **        Zilch!!! Round over         **
+                ****************************************
+                """)
+                round_number += 1
+                continue
+
+            # uncommenting this fails the single bank test
+            # if scoring == dice_roll:
+            #     print("Hot dice! Roll again")
+            #     score += GameLogic.calculate_score(scorers)
+            #     dice_remaining = 6
+            
             while True:
                 keep_dice = input("Enter dice to keep, or (q)uit:\n> ")
 
@@ -33,6 +49,16 @@ def play(roller=None):
                     user_quit = True
                     break
                 
+                #uncommenting this fails the single bank test and bank first two rounds test
+                # try: 
+                #     keep_dice = tuple(int(char) for char in keep_dice)
+                #     if not GameLogic.validate_keepers(keep_dice, dice_roll):
+                #         print("Cheater!!! Or possibly made a typo...")
+                #         continue
+                # except ValueError:
+                #     print("Invalid input. Please enter dice to keep or 'q' to quit.")
+                #     continue
+
                 else:
                     #convert each character in keep_dice to an integer
                     keep_dice = tuple(map(int, keep_dice))
@@ -48,7 +74,18 @@ def play(roller=None):
                         break
 
                     elif next_roll.lower() == 'r':
-                        break
+                        dice_roll =roller(dice_remaining)
+                        print("*** " + ''.join(str(die) + ' ' for die in dice_roll).strip() + " ***")
+                        
+                        scorers = GameLogic.get_scorers(dice_roll)
+                        if not scorers:
+                            unbanked_score = 0
+                            print("""
+                            ****************************************
+                            **        Zilch!!! Round over         **
+                            ****************************************
+                            """)
+                            break
 
                     elif next_roll.lower() == 'q':
                         user_quit = True
